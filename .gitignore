@@ -1,0 +1,16 @@
+# IntelliJ / IDEA
+.idea/
+*.iml
+
+# Gradle build cache & outputs
+.gradle/
+build/
+out/
+
+# Java compiled classes
+*.class
+
+# Logs & OS files
+*.log
+.DS_Store
+Thumbs.db
