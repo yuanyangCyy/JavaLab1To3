@@ -29,7 +29,7 @@ public class HangmanGame {
 
             if(chioce.equals("1")) {
                 try {
-                    File file = new File("src/main/resources/cosmetics.txt");
+                    File file = new File("src/main/resources/cosmetice.txt");
                     Scanner fs = new Scanner(file);
                     List<String> list = new ArrayList<>();
                     while (fs.hasNextLine()) {
@@ -47,11 +47,43 @@ public class HangmanGame {
                 }
                 scanner.nextLine();
             }else if(chioce.equals("2")) {
-                String[] animals = {"cat", "dog", "horse", "pig", "sheep"};
-                playOneRound(animals,scanner);
+                try {
+                    File file = new File("src/main/resources/animals.txt");
+                    Scanner fs = new Scanner(file);
+                    List<String> list = new ArrayList<>();
+                    while (fs.hasNextLine()) {
+                        String line = fs.nextLine().trim().toLowerCase();
+                        if (!line.isEmpty()) list.add(line);
+                    }
+                    fs.close();
+                    if (list.isEmpty()) {
+                        System.out.println("Word list is empty for Animals.");
+                    } else {
+                        playOneRound(list.toArray(new String[0]), scanner);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error reading animals.txt");
+                }
+                scanner.nextLine();
             }else if(chioce.equals("3")) {
-                String[] countries = {"canada", "china", "japan", "france"};
-                playOneRound(countries, scanner);
+                try {
+                    File file = new File("src/main/resources/countries.txt");
+                    Scanner fs = new Scanner(file);
+                    List<String> list = new ArrayList<>();
+                    while (fs.hasNextLine()) {
+                        String line = fs.nextLine().trim().toLowerCase();
+                        if (!line.isEmpty()) list.add(line);
+                    }
+                    fs.close();
+                    if (list.isEmpty()) {
+                        System.out.println("Word list is empty for Countries.");
+                    } else {
+                        playOneRound(list.toArray(new String[0]), scanner);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error reading countries.txt");
+                }
+                scanner.nextLine();
             }else if(chioce.equals("4")) {
                 System.out.println("Goodbye!");
                 break;
@@ -65,6 +97,11 @@ public class HangmanGame {
 
         scanner.close();
     }
+
+
+
+
+
 
 
 
