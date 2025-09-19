@@ -11,6 +11,23 @@ public class HangmanGame {
 
         System.out.println("Starting Lab 2...");
 
+Scanner scanner = new Scanner(System.in);
+
+while (true) {
+    System.out.println("Welcome to Hangman game");
+
+    System.out.println("1) Cosmetics Brands");
+    System.out.println("2) Animals");
+    System.out.println("3) Countries");
+    System.out.println("4) Exit");
+    System.out.print("Select a topic (1-4) > ");
+
+}
+
+
+
+
+
         String[] words = {"write", "that", "program", "java", "system", "object"};
 
         Scanner scanner = new Scanner(System.in);
