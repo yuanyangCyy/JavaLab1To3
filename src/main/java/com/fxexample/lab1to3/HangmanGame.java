@@ -9,6 +9,8 @@ public class HangmanGame {
     public static void main(String[] args) {
        // store some words for random
 
+        System.out.println("Starting Lab 2...");
+
         String[] words = {"write", "that", "program", "java", "system", "object"};
 
         Scanner scanner = new Scanner(System.in);
