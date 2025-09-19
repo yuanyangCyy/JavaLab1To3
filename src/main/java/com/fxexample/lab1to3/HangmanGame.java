@@ -68,8 +68,6 @@ public class HangmanGame {
 
         while (hasStars(masked)) {
             System.out.print("(Guess) Enter a letter in word " + new String(masked) + " > ");
-
-
             String token = scanner.next();
             char guess = Character.toLowerCase(token.charAt(0));
 
