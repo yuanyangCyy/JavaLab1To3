@@ -1,5 +1,6 @@
 package com.fxexample.lab1to3;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -7,35 +8,56 @@ import java.util.Scanner;
 public class HangmanGame {
 
     public static void main(String[] args) {
-       // store some words for random
+        // store some words for random
 
         System.out.println("Starting Lab 2...");
 
-Scanner scanner = new Scanner(System.in);
-
-while (true) {
-    System.out.println("Welcome to Hangman game");
-
-    System.out.println("1) Cosmetics Brands");
-    System.out.println("2) Animals");
-    System.out.println("3) Countries");
-    System.out.println("4) Exit");
-    System.out.print("Select a topic (1-4) > ");
-
-}
-
-
-
-
-
-        String[] words = {"write", "that", "program", "java", "system", "object"};
-
         Scanner scanner = new Scanner(System.in);
-        do {
-            playOneRound(words, scanner);
-        } while (askReplay(scanner));
+
+        while (true) {
+            System.out.println("Welcome to Hangman game");
+
+            System.out.println("1) Cosmetics Brands");
+            System.out.println("2) Animals");
+            System.out.println("3) Countries");
+            System.out.println("4) Exit");
+            System.out.print("Select a topic (1-4) > ");
+
+
+
+
+            String chioce = scanner.nextLine().trim();
+
+            if(chioce.equals("1")) {
+                String[] cosmetics = {"lancome", "clinique", "chanel", "dior"};
+                playOneRound(cosmetics,scanner);
+            }else if(chioce.equals("2")) {
+                String[] animals = {"cat", "dog", "horse", "pig", "sheep"};
+                playOneRound(animals,scanner);
+            }else if(chioce.equals("3")) {
+                String[] contries = {"canada", "china", "japan", "france"};
+                playOneRound(contries, scanner);
+            }else if(chioce.equals("4")) {
+                System.out.println("Goodbye!");
+                break;
+            } else {
+                System.out.println("Invalid choice");
+
+            }
+
+
+        }
+
         scanner.close();
     }
+
+
+
+
+
+
+
+
 
     private static void playOneRound(String[] words, Scanner scanner) {
         String word = pickRandom(words).toLowerCase();   //
