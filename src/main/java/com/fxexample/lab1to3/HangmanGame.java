@@ -1,15 +1,28 @@
 package com.fxexample.lab1to3;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class HangmanGame {
     public static void main(String[] args) {
-        // Define a list of words for the Hangman game
-        String[] words = {"write", "that", "program", "java"};
+       //define the words
 
-        // Print available words (just to test the array works)
-        System.out.print("Available words: ");
-        for (String word : words) {
-            System.out.print(word + " ");
-        }
-        System.out.println();
+        String[] words = {"write", "that", "program", "java", "system", "object"};
+
+// random a word
+
+        Random random = new Random();
+        String word = words[random.nextInt(words.length)];
+
+
+
+        char[] masked = new char[word.length()];
+        Arrays.fill(masked, '*');
+
+
+        System.out.println("Hangman is ready!");
+        System.out.println("Word: " + new String(masked)); //
+
+
     }
 }
