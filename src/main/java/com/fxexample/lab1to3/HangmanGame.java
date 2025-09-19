@@ -1,16 +1,15 @@
 package com.fxexample.lab1to3;
 
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.File;
+import java.util.*;
 
 public class HangmanGame {
 
     public static void main(String[] args) {
         // store some words for random
 
-        System.out.println("Starting Lab 2...");
+
 
         Scanner scanner = new Scanner(System.in);
 
@@ -29,14 +28,30 @@ public class HangmanGame {
             String chioce = scanner.nextLine().trim();
 
             if(chioce.equals("1")) {
-                String[] cosmetics = {"lancome", "clinique", "chanel", "dior"};
-                playOneRound(cosmetics,scanner);
+                try {
+                    File file = new File("src/main/resources/cosmetics.txt");
+                    Scanner fs = new Scanner(file);
+                    List<String> list = new ArrayList<>();
+                    while (fs.hasNextLine()) {
+                        String line = fs.nextLine().trim().toLowerCase();
+                        if (!line.isEmpty()) list.add(line);
+                    }
+                    fs.close();
+                    if (list.isEmpty()) {
+                        System.out.println("Word list is empty for Cosmetics.");
+                    } else {
+                        playOneRound(list.toArray(new String[0]), scanner);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error reading cosmetics.txt");
+                }
+                scanner.nextLine();
             }else if(chioce.equals("2")) {
                 String[] animals = {"cat", "dog", "horse", "pig", "sheep"};
                 playOneRound(animals,scanner);
             }else if(chioce.equals("3")) {
-                String[] contries = {"canada", "china", "japan", "france"};
-                playOneRound(contries, scanner);
+                String[] countries = {"canada", "china", "japan", "france"};
+                playOneRound(countries, scanner);
             }else if(chioce.equals("4")) {
                 System.out.println("Goodbye!");
                 break;
